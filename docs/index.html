@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>オノマトペツール</title>
+</head>
+<body>
+    <div class="header-container">
+        <header>
+        <h1>オノマトペツール</h1>
+        </header>
+    </div>
+
+    <div class="main-container">
+        <div class="nyuryoku">
+            <p>生成したい文字を入力してください</p>
+            <input type="text" id="txet" maxlength="5" pattern="^[ぁ-んァ-ヶー]+$" placeholder="ひらがな、カタカナのみ五文字以内です"/>
+            <input type="button" value="Check" id="checkButton">
+            <p id="msg"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>オノマトペツール</p>
+        <p>制作:2024年</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,68 @@
+header,
+  main,
+  footer {
+    box-sizing: border-box;
+    width: 1100px;
+    margin: 0 auto;
+  }
+  :global(a) {
+    text-decoration: none;
+  }
+  main {
+  flex: 1;
+  }
+  h1 {
+    margin-left: 0.5em;
+    color: white;
+  }
+  h1:hover {
+    color: #cbcbcb;
+  }
+  header {
+    background-color: rgb(37, 37, 37);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2em 2em 0.5em;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .main-container p{
+    text-align: center;
+    }
+input{
+    width: 30%;
+    margin: 0 auto;
+    padding: 0.5em;
+    font-size: medium;
+}
+input:invalid {
+background-color: lightpink;
+}
+.nyuryoku{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+#checkButton{
+    display: flex;
+    flex-direction: row;
+    width: 10%;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    background-color: rgb(37, 37, 37);
+    color: white;
+    cursor: pointer;
+}
+  footer {
+    background-color: rgb(37, 37, 37);
+    color: white;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1em 2em 0.5em;
+    margin: 0 auto;
+    width: 100%;
+  }
