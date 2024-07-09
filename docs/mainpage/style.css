@@ -34,9 +34,32 @@ header,
     margin: 0 auto;
     width: 100%;
   }
-  .text{
+  .mainsize{
     height: 70vh;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mainsize img{
+    width: 100px;
+    height: auto;
+  }
+  .text{
+    display: flex;
+    margin: 0 auto;
+    height: 100px;
+    width: 100%;
+    justify-content: center;
+  }
+  .hirai{
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+  .image{
+    position: absolute;
+  }
+
   footer {
     background-color: rgb(37, 37, 37);
     color: white;
