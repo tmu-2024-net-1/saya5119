@@ -34,35 +34,9 @@ header,
     margin: 0 auto;
     width: 100%;
   }
-  .main-container p{
-    text-align: center;
-    }
-input{
-    width: 30%;
-    margin: 0 auto;
-    padding: 0.5em;
-    font-size: medium;
-}
-input:invalid {
-background-color: lightpink;
-}
-.nyuryoku{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .text{
     height: 70vh;
-}
-#checkButton{
-    display: flex;
-    flex-direction: row;
-    width: 10%;
-    margin-top: 1em;
-    padding: 0.5em 1em;
-    background-color: rgb(37, 37, 37);
-    color: white;
-    cursor: pointer;
-}
+    }
   footer {
     background-color: rgb(37, 37, 37);
     color: white;
