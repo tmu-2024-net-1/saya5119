@@ -5,6 +5,7 @@ function buttonClick(event) {
 
     if (regex.test(myText.value) && myText.value.length <= 5) {
         msg.textContent = myText.value;
+        localStorage.setItem('msg', myText.value);
         window.location.href = 'fontselect/index.html';
     } else {
         msg.textContent = "ひらがな、カタカナのみ五文字以内です";
