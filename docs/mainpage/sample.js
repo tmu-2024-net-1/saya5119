@@ -4,18 +4,53 @@ const receivedMsg = localStorage.getItem('msg');
 // Function to get SVG path based on character
 function createElementForCharacter(char) {
     switch(char) {
-        case 'あ':
-            return ['./svg/hiraa.svg'];
-        case 'い':
-            return ['./svg/hirai.svg'];
-        case 'う':
-            return ['./svg/hirau.svg'];
-        case 'え':
-            return ['./svg/hirae.svg'];
-        case 'お':
-            return ['./svg/hirao.svg'];
-        default:
-            return [];
+        case 'あ': return ['./svg/hiraa.svg'];
+        case 'い': return ['./svg/hirai.svg'];
+        case 'う': return ['./svg/hirau.svg'];
+        case 'え': return ['./svg/hirae.svg'];
+        case 'お': return ['./svg/hirao.svg'];
+        case 'か': return ['./svg/hiraka.svg'];
+        case 'き': return ['./svg/hiraki.svg'];
+        case 'く': return ['./svg/hiraku.svg'];
+        case 'け': return ['./svg/hirake.svg'];
+        case 'こ': return ['./svg/hirako.svg'];
+        case 'さ': return ['./svg/hirasa.svg'];
+        case 'し': return ['./svg/hirasi.svg'];
+        case 'す': return ['./svg/hirasu.svg'];
+        case 'せ': return ['./svg/hirase.svg'];
+        case 'そ': return ['./svg/hiraso.svg'];
+        case 'た': return ['./svg/hirata.svg'];
+        case 'ち': return ['./svg/hirati.svg'];
+        case 'つ': return ['./svg/hiratu.svg'];
+        case 'て': return ['./svg/hirate.svg'];
+        case 'と': return ['./svg/hirato.svg'];
+        case 'な': return ['./svg/hirana.svg'];
+        case 'に': return ['./svg/hirani.svg'];
+        case 'ぬ': return ['./svg/hiranu.svg'];
+        case 'ね': return ['./svg/hirane.svg'];
+        case 'の': return ['./svg/hirano.svg'];
+        case 'は': return ['./svg/hiraha.svg'];
+        case 'ひ': return ['./svg/hirahi.svg'];
+        case 'ふ': return ['./svg/hirahu.svg'];
+        case 'へ': return ['./svg/hirahe.svg'];
+        case 'ほ': return ['./svg/hiraho.svg'];
+        case 'ま': return ['./svg/hirama.svg'];
+        case 'み': return ['./svg/hirami.svg'];
+        case 'む': return ['./svg/hiramu.svg'];
+        case 'め': return ['./svg/hirame.svg'];
+        case 'も': return ['./svg/hiramo.svg'];
+        case 'や': return ['./svg/hiraya.svg'];
+        case 'ゆ': return ['./svg/hirayu.svg'];
+        case 'よ': return ['./svg/hirayo.svg'];
+        case 'ら': return ['./svg/hirara.svg'];
+        case 'り': return ['./svg/hirari.svg'];
+        case 'る': return ['./svg/hiraru.svg'];
+        case 'れ': return ['./svg/hirare.svg'];
+        case 'ろ': return ['./svg/hiraro.svg'];
+        case 'わ': return ['./svg/hirawa.svg'];
+        case 'を': return ['./svg/hirawo.svg'];
+        case 'ん': return ['./svg/hirann.svg'];
+        default: return [];
     }
 }
 
@@ -40,8 +75,16 @@ Common.setDecomp(decomp);
 const engine = Engine.create();
 const world = engine.world;
 
-// Modify gravity
-world.gravity.y = 0.01;
+const receiveselectnumber = localStorage.getItem('selectnumber');
+if (receiveselectnumber == 1) {
+    world.gravity.y = 0.01;
+} else if (receiveselectnumber == 2) {
+    world.gravity.y = 5;
+} else if (receiveselectnumber == 3) {
+    world.gravity.y = 1;
+} else if (receiveselectnumber == 4) {
+    world.gravity.y = 1;
+}
 
 // Create a renderer for Matter.js
 const render = Render.create({
@@ -76,12 +119,13 @@ const addSvgsToMatter = function(urls, x, y) {
                     return Svg.pathToVertices(path, 50);
                 });
 
-            // Add the Matter.js body for physics with transparency
-            const body = Bodies.fromVertices(x, y, vertexSets, {
+            // Create a 100x100 pixel physics body
+            const body = Bodies.rectangle(x, y, 100, 100, {
                 render: {
-                    lineWidth: 1
+                    lineWidth: 1,
+                    visible: false
                 }
-            }, true);
+            });
 
             Composite.add(world, body);
 
@@ -99,7 +143,7 @@ const addSvgsToMatter = function(urls, x, y) {
             const ctx = canvas.getContext('2d');
             Canvg.from(ctx, url).then((v) => {
                 v.start();
-                ctx.scale(0.125, 0.125);  // Scale down the SVG (100 / 800 = 0.125)
+                ctx.scale(1, 1);  // Scale to fit the canvas size
             });
 
             // Sync the canvas with Matter.js body
@@ -107,7 +151,7 @@ const addSvgsToMatter = function(urls, x, y) {
                 const { position, angle } = body;
                 const screenWidth = window.innerWidth;
                 const offsetX = (screenWidth - 1100) / 2;  // Adjust offset based on screen width
-            
+
                 canvas.style.transform = `translate(${position.x - 50 + offsetX}px, ${position.y + 10}px) rotate(${angle}rad)`; // Center the canvas horizontally and vertically
                 requestAnimationFrame(updateCanvas);
             })();
@@ -131,13 +175,35 @@ if (receivedMsg) {
     }
 }
 
+// Add an ID to the floor body
+const floor = Bodies.rectangle(550, 600, 1100, 50, { isStatic: true, id: 'floor' });
+
 // Add walls, floor, and ceiling adjusted for the new dimensions
 Composite.add(world, [
     Bodies.rectangle(550, 0, 1100, 50, { isStatic: true }), // Ceiling
-    Bodies.rectangle(550, 600, 1100, 50, { isStatic: true }), // Floor
+    floor, // Floor
     Bodies.rectangle(1100, 300, 50, 600, { isStatic: true }), // Right wall
     Bodies.rectangle(0, 300, 50, 600, { isStatic: true }) // Left wall
 ]);
+
+// Collision event listener
+Matter.Events.on(engine, 'collisionStart', function(event) {
+    const pairs = event.pairs;
+
+    pairs.forEach(pair => {
+        const { bodyA, bodyB } = pair;
+
+        if (receiveselectnumber == 3) {
+            if (bodyA.id === 'floor' || bodyB.id === 'floor') {
+                const movingBody = bodyA.id === 'floor' ? bodyB : bodyA;
+
+                // Warp to 150 pixels below the top of the canvas
+                Matter.Body.setPosition(movingBody, { x: movingBody.position.x, y: 80 });
+                Matter.Body.setVelocity(movingBody, { x: 0, y: 0 }); // Reset velocity to avoid bouncing
+            }
+        }
+    });
+});
 
 // Create mouse constraint
 var mouse = Mouse.create(render.canvas);

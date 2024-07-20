@@ -4,7 +4,6 @@ function buttonClick(event) {
     let regex = /^[ぁ-んァ-ヶー]+$/;
 
     if (regex.test(myText.value) && myText.value.length <= 5) {
-        msg.textContent = myText.value;
         localStorage.setItem('msg', myText.value);
         window.location.href = 'fontselect/index.html';
     } else {
