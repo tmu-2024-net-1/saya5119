@@ -1,5 +1,4 @@
-header,
-  main,
+header,main
   footer {
     box-sizing: border-box;
     width: 1100px;
@@ -7,9 +6,6 @@ header,
   }
   :global(a) {
     text-decoration: none;
-  }
-  main {
-  flex: 1;
   }
   h1 {
     margin-left: 0.5em;
@@ -34,257 +30,13 @@ header,
     margin: 0 auto;
     width: 100%;
   }
-  .mainsize{
-    height: 70vh;
+  main {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .mainsize img{
-    width: 100px;
-    height: auto;
-  }
-  #text{
-    display: flex;
-    margin: 0 auto;
-    height: 100px;
-    width: 100%;
-    justify-content: center;
-  }
-  .hiraa{
     position: relative;
-    width: 100px;
-    height: 100px;
   }
-  .hirai{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirau{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirae{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirao{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hiraka{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hiraki{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hiraku{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirake{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirako{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirasa{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirasi{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirasu{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirase{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hiraso{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirata{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirati{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hiratu{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirate{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirato{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirana{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirani{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hiranu{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirane{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirano{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hiraha{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirahi{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirahu{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirahe{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hiraho{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirama{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirami{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hiramu{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirame{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hiramo{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hiraya{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirayu{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirayo{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirara{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirari{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hiraru{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirare{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hiraro{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirawa{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hirawo{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .hiran{
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .image{
-    position: absolute;
-  }
-
   footer {
     background-color: rgb(37, 37, 37);
     color: white;
@@ -294,4 +46,5 @@ header,
     padding: 1em 2em 0.5em;
     margin: 0 auto;
     width: 100%;
+    margin-top: auto;
   }
