@@ -83,7 +83,7 @@ if (receiveselectnumber == 1) {
 } else if (receiveselectnumber == 3) {
     world.gravity.y = 1;
 } else if (receiveselectnumber == 4) {
-    world.gravity.y = 1;
+    world.gravity.y = 1.2;
 }
 
 // Create a renderer for Matter.js
@@ -120,7 +120,7 @@ const addSvgsToMatter = function(urls, x, y) {
                 });
 
             // Create a 100x100 pixel physics body
-            const body = Bodies.rectangle(x, y, 100, 100, {
+            const body = Bodies.rectangle(x, y, 90, 90, {
                 render: {
                     lineWidth: 1,
                     visible: false
@@ -152,7 +152,7 @@ const addSvgsToMatter = function(urls, x, y) {
                 const screenWidth = window.innerWidth;
                 const offsetX = (screenWidth - 1100) / 2;  // Adjust offset based on screen width
 
-                canvas.style.transform = `translate(${position.x - 50 + offsetX}px, ${position.y + 10}px) rotate(${angle}rad)`; // Center the canvas horizontally and vertically
+                canvas.style.transform = `translate(${position.x - 50 + offsetX}px, ${position.y + 60}px) rotate(${angle}rad)`; // Center the canvas horizontally and vertically
                 requestAnimationFrame(updateCanvas);
             })();
         });

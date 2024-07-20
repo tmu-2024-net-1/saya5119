@@ -42,7 +42,6 @@ header,main
     gap: 10px; /* Space between buttons */
     width: 1100px;
     margin: 0 auto;
-    justify-content: flex-end;
   }
   
   .icon{

@@ -56,7 +56,9 @@ background-color: lightpink;
 #checkButton{
     display: flex;
     flex-direction: row;
-    width: 10%;
+    display: block;
+    width: 120px;
+    text-align: center;
     margin-top: 1em;
     padding: 0.5em 1em;
     background-color: rgb(37, 37, 37);
