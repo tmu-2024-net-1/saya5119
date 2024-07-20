@@ -202,6 +202,33 @@ Matter.Events.on(engine, 'collisionStart', function(event) {
                 Matter.Body.setVelocity(movingBody, { x: 0, y: 0 }); // Reset velocity to avoid bouncing
             }
         }
+        if (receiveselectnumber == 4) {
+            if (bodyA.id === 'floor' || bodyB.id === 'floor') {
+                const movingBody = bodyA.id === 'floor' ? bodyB : bodyA;
+
+                // Reverse the vertical velocity to create a bouncing effect
+                Matter.Body.setVelocity(movingBody, {
+                    x: movingBody.velocity.x,
+                    y: -movingBody.velocity.y * 0.8 // Apply a damping factor (e.g., 0.8) to simulate energy loss
+                });
+            } else if (bodyA.id === 'ceiling' || bodyB.id === 'ceiling') {
+                const movingBody = bodyA.id === 'ceiling' ? bodyB : bodyA;
+
+                // Reverse the vertical velocity to create a bouncing effect
+                Matter.Body.setVelocity(movingBody, {
+                    x: movingBody.velocity.x,
+                    y: -movingBody.velocity.y * 0.8 // Apply a damping factor (e.g., 0.8) to simulate energy loss
+                });
+            } else if (bodyA.id === 'left wall' || bodyB.id === 'left wall' || bodyA.id === 'right wall' || bodyB.id === 'right wall') {
+                const movingBody = bodyA.id === 'left wall' || bodyA.id === 'right wall' ? bodyB : bodyA;
+
+                // Reverse the horizontal velocity to create a bouncing effect
+                Matter.Body.setVelocity(movingBody, {
+                    x: -movingBody.velocity.x * 0.8, // Apply a damping factor (e.g., 0.8) to simulate energy loss
+                    y: movingBody.velocity.y
+                });
+            }
+        }
     });
 });
 

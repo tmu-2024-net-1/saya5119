@@ -37,6 +37,39 @@ header,main
     align-items: center;
     position: relative;
   }
+  .bottan-container {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    width: 1100px;
+    margin: 0 auto;
+    justify-content: flex-end;
+  }
+  
+  .icon{
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    border: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #reset-button {
+    background-image: url('./svg/reset.svg'); /* Path to your reset.svg */
+  }
+  
+  #home-button {
+    background-image: url('./svg/home.svg'); /* Path to your home.svg */
+  }
+  
+  /* Optional: Add hover effect */
+  .icon {
+    opacity: 0.8;
+  }
+  
   footer {
     background-color: rgb(37, 37, 37);
     color: white;
