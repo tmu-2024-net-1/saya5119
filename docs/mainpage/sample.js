@@ -50,6 +50,41 @@ function createElementForCharacter(char) {
         case 'わ': return ['./svg/hirawa.svg'];
         case 'を': return ['./svg/hirawo.svg'];
         case 'ん': return ['./svg/hirann.svg'];
+        case 'が': return ['./svg/hiraga.svg'];
+        case 'ぎ': return ['./svg/hiragi.svg'];
+        case 'ぐ': return ['./svg/hiragu.svg'];
+        case 'げ': return ['./svg/hirage.svg'];
+        case 'ご': return ['./svg/hirago.svg'];
+        case 'ざ': return ['./svg/hiraza.svg'];
+        case 'じ': return ['./svg/hirazi.svg'];
+        case 'ず': return ['./svg/hirazu.svg'];
+        case 'ぜ': return ['./svg/hiraze.svg'];
+        case 'ぞ': return ['./svg/hirazo.svg'];
+        case 'だ': return ['./svg/hirada.svg'];
+        case 'ぢ': return ['./svg/hiradi.svg'];
+        case 'づ': return ['./svg/hiradu.svg'];
+        case 'で': return ['./svg/hirade.svg'];
+        case 'ど': return ['./svg/hirado.svg'];
+        case 'ば': return ['./svg/hiraba.svg'];
+        case 'び': return ['./svg/hirabi.svg'];
+        case 'ぶ': return ['./svg/hirabu.svg'];
+        case 'べ': return ['./svg/hirabe.svg'];
+        case 'ぼ': return ['./svg/hirabo.svg'];
+        case 'ぱ': return ['./svg/hirapa.svg'];
+        case 'ぴ': return ['./svg/hirapi.svg'];
+        case 'ぷ': return ['./svg/hirapu.svg'];
+        case 'ぺ': return ['./svg/hirape.svg'];
+        case 'ぽ': return ['./svg/hirapo.svg'];
+        case 'ゃ': return ['./svg/hiraya2.svg'];
+        case 'ゅ': return ['./svg/hirayu2.svg'];
+        case 'ょ': return ['./svg/hirayo2.svg'];
+        case 'っ': return ['./svg/hiratt.svg'];
+        case 'ぁ': return ['./svg/hiraxa.svg'];
+        case 'ぃ': return ['./svg/hiraxi.svg'];
+        case 'ぅ': return ['./svg/hiraxu.svg'];
+        case 'ぇ': return ['./svg/hiraxe.svg'];
+        case 'ぉ': return ['./svg/hiraxo.svg'];
+        case 'ー': return ['./svg/hiradash.svg'];
         default: return [];
     }
 }
@@ -111,7 +146,7 @@ const loadSvg = function(url) {
 };
 
 // Function to add SVGs to Matter.js and Canvg
-const addSvgsToMatter = function(urls, x, y) {
+const addSvgsToMatter = function(urls, x, y, size) {
     urls.forEach(url => {
         loadSvg(url).then(function(root) {
             const vertexSets = select(root, 'path')
@@ -119,8 +154,8 @@ const addSvgsToMatter = function(urls, x, y) {
                     return Svg.pathToVertices(path, 50);
                 });
 
-            // Create a 100x100 pixel physics body
-            const body = Bodies.rectangle(x, y, 90, 90, {
+            // Create a physics body with the given size
+            const body = Bodies.rectangle(x, y, size, size, {
                 render: {
                     lineWidth: 1,
                     visible: false
@@ -167,9 +202,10 @@ if (receivedMsg) {
     for (let i = 0; i < receivedMsg.length; i++) {
         const char = receivedMsg[i];
         const svgPaths = createElementForCharacter(char);
+        const size = (char === 'ゃ' || char === 'ゅ' || char === 'ょ' || char === 'っ' || char === 'ぁ' || char === 'ぃ' || char === 'ぅ' || char === 'ぇ' || char === 'ぉ') ? 70 : 90;
         
         if (svgPaths.length > 0) {
-            addSvgsToMatter(svgPaths, x, y);
+            addSvgsToMatter(svgPaths, x, y, size);
             x += 150;  // Adjust x position for the next SVG
         }
     }

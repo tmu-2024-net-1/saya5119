@@ -7,7 +7,18 @@ header,main
   :global(a) {
     text-decoration: none;
   }
+  header {
+    flex: auto;
+    background-color: rgb(37, 37, 37);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2em 2em 0.5em;
+    margin: 0 auto;
+    width: 100%;
+  }
   h1 {
+    font-size: 2em;
     margin-left: 0.5em;
     color: white;
   }
@@ -21,17 +32,7 @@ header,main
   h1:hover {
     color: #cbcbcb;
   }
-  header {
-    background-color: rgb(37, 37, 37);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 2em 2em 0.5em;
-    margin: 0 auto;
-    width: 100%;
-  }
   main {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;

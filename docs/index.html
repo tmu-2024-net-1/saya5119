@@ -17,7 +17,7 @@
     <div class="main-container">
         <div class="nyuryoku">
             <p>生成したい文字を入力してください</p>
-            <input type="text" id="txet" pattern="^[ぁ-んァ-ヶー]+$" maxlength="5" placeholder="ひらがな、カタカナのみ五文字以内です"/>
+            <input type="text" id="txet" pattern="^[ぁ-んー]{1,5}$" maxlength="5" placeholder="ひらがなのみ、五文字以内です"/>
             <input type="button" value="Check" id="checkButton">
             <p id="msg"></p>
         </div>
